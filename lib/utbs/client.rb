@@ -14,7 +14,7 @@ module Utbs
       uri = URI.parse(remote_server_uri)
       uri.query = URI.encode_www_form host: host, uri: path
 
-      Net::HTTP.get(uri)
+      Net::HTTP.get(uri).encode('UTF-8', 'CP1251')
     end
   end
 end
