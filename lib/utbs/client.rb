@@ -15,6 +15,8 @@ module Utbs
       uri.query = URI.encode_www_form host: host, uri: path
 
       Net::HTTP.get(uri).encode('UTF-8', 'CP1251')
+    rescue Timeout::Error
+      ''
     end
   end
 end
